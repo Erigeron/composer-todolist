@@ -36,7 +36,7 @@
       :children {
        "T" {
         :id "T", :type :box, :layout nil
-        :props {}
+        :props {"action" "~:toggle"}
         :attrs {}
         :presets #{}
         :style {"height" "40", "width" "40", "background-color" "hsl(0,70%,60%)"}
@@ -44,7 +44,7 @@
        }
        "j" {
         :id "T", :type :box, :layout nil
-        :props {}
+        :props {"action" "~:target"}
         :attrs {}
         :presets #{}
         :style {"height" "40", "width" "40", "background-color" "#ada"}

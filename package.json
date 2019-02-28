@@ -24,7 +24,7 @@
     "shadow-cljs": "^2.8.11"
   },
   "dependencies": {
-    "feather-icons": "^4.17.0",
+    "feather-icons": "^4.19.0",
     "shortid": "^2.2.14"
   }
 }
