@@ -9,13 +9,16 @@
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
-            [respo-composer.core :refer [render-markup]]
-            [composed.templates :refer [templates]]))
+            [respo-composer.core :refer [render-markup extract-templates]]
+            [shadow.resource :refer [inline]]
+            [cljs.reader :refer [read-string]]))
 
 (defcomp
  comp-container
  (reel)
- (let [store (:store reel), states (:states store)]
+ (let [store (:store reel)
+       states (:states store)
+       templates (extract-templates (read-string (inline "composed/composer.edn")))]
    (div
     {:style (merge ui/global ui/row)}
     (textarea
@@ -34,6 +37,6 @@
        :on-click (fn [e d! m!] (println (:content store)))})
      (render-markup
       (get templates "container")
-      {:data {:title "HEADER OF PAGE"}, :templates templates}
+      {:data {:title "HEADER OF PAGE"}, :templates templates, :level 1}
       (fn [op op-data] (println op op-data))))
     (when dev? (cursor-> :reel comp-reel states reel {})))))
