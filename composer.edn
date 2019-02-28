@@ -4,6 +4,89 @@
   "QNVm2QC1xk" {:id "QNVm2QC1xk", :name "chen", :nickname "chen", :password "d41d8cd98f00b204e9800998ecf8427e", :avatar nil}
  }
  :templates {
+  "Gayfn7QMm" {
+   :id "Gayfn7QMm", :name "header", :mock-pointer nil, :width 400, :height 100
+   :mocks {}
+   :markup {
+    :id "system", :type :box, :layout :row-middle
+    :props {}
+    :attrs {}
+    :presets #{}
+    :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
+    :children {
+     "T" {
+      :id "T", :type :text, :layout nil
+      :props {"value" "Todolist demo"}
+      :attrs {}
+      :presets #{:font-fancy}
+      :style {}
+      :children {}
+     }
+     "b" {
+      :id "b", :type :space, :layout nil
+      :props {"width" "8"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "j" {
+      :id "j", :type :input, :layout nil
+      :props {}
+      :attrs {"placeholder" "Todo thing"}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "n" {
+      :id "n", :type :space, :layout nil
+      :props {"width" "8"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "r" {
+      :id "r", :type :button, :layout nil
+      :props {}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+    }
+   }
+  }
+  "dXlFkinWy" {
+   :id "dXlFkinWy", :name "records", :mock-pointer nil, :width nil, :height nil
+   :mocks {}
+   :markup {
+    :id "system", :type :list, :layout :row
+    :props {}
+    :attrs {}
+    :presets #{}
+    :style {}
+    :children {
+     "T" {
+      :id "T", :type :box, :layout nil
+      :props {}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {
+       "T" {
+        :id "T", :type :box, :layout nil
+        :props {}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+      }
+     }
+    }
+   }
+  }
   "sx519VqVn" {
    :id "sx519VqVn", :name "container", :mock-pointer nil
    :mocks {}
@@ -38,6 +121,35 @@
         :children {}
        }
       }
+     }
+    }
+   }
+  }
+  "vRpCCeaS1" {
+   :id "vRpCCeaS1", :name "footer", :mock-pointer nil, :width 400, :height 100
+   :mocks {}
+   :markup {
+    :id "system", :type :box, :layout :row
+    :props {}
+    :attrs {}
+    :presets #{}
+    :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
+    :children {
+     "T" {
+      :id "T", :type :button, :layout nil
+      :props {"text" "Clear"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "j" {
+      :id "j", :type :space, :layout nil
+      :props {"width" "8"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
      }
     }
    }
