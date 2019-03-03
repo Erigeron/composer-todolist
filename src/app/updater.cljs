@@ -3,8 +3,7 @@
 
 (defn model-updater [model op props op-data op-id op-time]
   (case op
-    "~:input" (let [event-obj op-data, text (:value event-obj)] (assoc model :input text))
-    :input (let [event-obj op-data, text (:value event-obj)] (assoc model :input text))
+    :input (let [event-obj op-data, text (:text op-data)] (assoc model :input text))
     :submit
       (-> model
           (update
@@ -26,6 +25,11 @@
        model
        :records
        (fn [records] (->> records (filter (fn [record] (not= op-data (:id record)))) vec)))
+    :archive
+      (update
+       model
+       :records
+       (fn [records] (->> records (filter (fn [record] (not (:done? record)))) vec)))
     :clear (assoc model :records [])
     (do (println "unknown op" op) model)))
 

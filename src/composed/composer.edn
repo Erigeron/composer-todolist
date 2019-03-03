@@ -5,7 +5,7 @@
  }
  :templates {
   "6lOwBKeFr" {
-   :id "6lOwBKeFr", :name "task", :mock-pointer "sGbCZti4P", :width 400, :height 100
+   :id "6lOwBKeFr", :name "task", :mock-pointer "rvPe9QUYN", :width 400, :height 100
    :mocks {
     "GxVXbLuSK" {
      :id "GxVXbLuSK", :name "empty task"
@@ -39,7 +39,7 @@
         :props {"action" "~:toggle", "data" "@:id"}
         :attrs {}
         :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "hsl(0,70%,60%)", "cursor" "pointer"}
+        :style {"height" "40", "width" "40", "background-color" "hsl(200,70%,60%)", "cursor" "pointer"}
         :children {}
        }
        "j" {
@@ -47,7 +47,7 @@
         :props {"action" "~:toggle", "data" "@:id"}
         :attrs {}
         :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "#ada", "cursor" "pointer"}
+        :style {"height" "40", "width" "40", "background-color" "hsl(0,0%,90%)", "cursor" "pointer"}
         :children {}
        }
       }
@@ -120,7 +120,7 @@
       :children {
        "T" {
         :id "T", :type :icon, :layout nil
-        :props {"name" "delete", "action" "~:remove", "data" "@:id"}
+        :props {"name" "delete", "action" "~:remove", "data" "@:id", "color" "hsl(0,90%,75%)"}
         :attrs {}
         :presets #{}
         :style {}
@@ -146,7 +146,7 @@
     :children {
      "T" {
       :id "T", :type :text, :layout nil
-      :props {"value" "Todolist demo"}
+      :props {"value" "My Todolist"}
       :attrs {}
       :presets #{:font-fancy}
       :style {}
@@ -178,7 +178,7 @@
      }
      "r" {
       :id "r", :type :button, :layout nil
-      :props {"action" "~:submit"}
+      :props {"action" "~:submit", "text" "Add task"}
       :attrs {}
       :presets #{}
       :style {}
@@ -356,6 +356,14 @@
        "j" {
         :id "j", :type :space, :layout nil
         :props {"width" "8"}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+       "r" {
+        :id "r", :type :button, :layout nil
+        :props {"text" "Archive", "action" "~:archive"}
         :attrs {}
         :presets #{}
         :style {}
