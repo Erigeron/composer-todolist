@@ -5,7 +5,7 @@
  }
  :templates {
   "6lOwBKeFr" {
-   :id "6lOwBKeFr", :name "task", :mock-pointer "GxVXbLuSK", :width 400, :height 100
+   :id "6lOwBKeFr", :name "task", :mock-pointer "sGbCZti4P", :width 400, :height 100
    :mocks {
     "GxVXbLuSK" {
      :id "GxVXbLuSK", :name "empty task"
@@ -25,7 +25,7 @@
     :props {}
     :attrs {}
     :presets #{}
-    :style {"background-color" "hsl(0,0%,100%)"}
+    :style {"background-color" "hsl(0,0%,100%)", "border-bottom" "1px solid #eee"}
     :children {
      "T" {
       :id "eoUAbhfcG", :type :some, :layout nil
@@ -39,15 +39,15 @@
         :props {"action" "~:toggle"}
         :attrs {}
         :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "hsl(0,70%,60%)"}
+        :style {"height" "40", "width" "40", "background-color" "hsl(0,70%,60%)", "cursor" "pointer"}
         :children {}
        }
        "j" {
         :id "T", :type :box, :layout nil
-        :props {"action" "~:target"}
+        :props {"action" "~:toggle"}
         :attrs {}
         :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "#ada"}
+        :style {"height" "40", "width" "40", "background-color" "#ada", "cursor" "pointer"}
         :children {}
        }
       }
@@ -120,7 +120,7 @@
       :children {
        "T" {
         :id "T", :type :icon, :layout nil
-        :props {"name" "delete"}
+        :props {"name" "delete", "action" "~:remove"}
         :attrs {}
         :presets #{}
         :style {}
@@ -132,8 +132,11 @@
    }
   }
   "Gayfn7QMm" {
-   :id "Gayfn7QMm", :name "header", :mock-pointer nil, :width 400, :height 100
-   :mocks {}
+   :id "Gayfn7QMm", :name "header", :mock-pointer "zn6RdI-_2", :width 400, :height 100
+   :mocks {
+    "rhrFz-MZW" {:id "rhrFz-MZW", :data "something", :name "something"}
+    "zn6RdI-_2" {:id "zn6RdI-_2", :data "", :name "base"}
+   }
    :markup {
     :id "system", :type :box, :layout :row-middle
     :props {}
@@ -159,7 +162,7 @@
      }
      "j" {
       :id "j", :type :input, :layout nil
-      :props {}
+      :props {"value" "@"}
       :attrs {"placeholder" "Todo thing"}
       :presets #{}
       :style {}
@@ -175,7 +178,7 @@
      }
      "r" {
       :id "r", :type :button, :layout nil
-      :props {}
+      :props {"action" "~:submit"}
       :attrs {}
       :presets #{}
       :style {}
@@ -185,25 +188,55 @@
    }
   }
   "dXlFkinWy" {
-   :id "dXlFkinWy", :name "records", :mock-pointer nil, :width nil, :height nil
-   :mocks {}
+   :id "dXlFkinWy", :name "records", :mock-pointer "INLWqkKLk", :width 400, :height 100
+   :mocks {
+    "6rprNVgQt" {
+     :id "6rprNVgQt", :name "empty"
+     :data []
+    }
+    "INLWqkKLk" {
+     :id "INLWqkKLk", :name "base"
+     :data [
+      {:id "1", :text "demo", :done? false}
+      {:id "2", :text "demo 2", :done? true}
+      {:id "3", :text "demo 3", :done? false}
+     ]
+    }
+   }
    :markup {
-    :id "system", :type :list, :layout :row
-    :props {}
+    :id "iEYNBfUfB", :type :some, :layout nil
+    :props {"kind" "list", "value" "@"}
     :attrs {}
     :presets #{}
     :style {}
     :children {
-     "T" {
-      :id "T", :type :box, :layout nil
+     "D" {
+      :id "D", :type :box, :layout :row-center
       :props {}
       :attrs {}
       :presets #{}
       :style {}
       :children {
        "T" {
-        :id "T", :type :box, :layout nil
-        :props {}
+        :id "T", :type :text, :layout nil
+        :props {"value" "Empty"}
+        :attrs {}
+        :presets #{:font-fancy}
+        :style {"color" "#ddd", "padding" "4px"}
+        :children {}
+       }
+      }
+     }
+     "T" {
+      :id "system", :type :list, :layout :column
+      :props {"value" "@"}
+      :attrs {}
+      :presets #{}
+      :style {"background-color" "hsl(0,0%,100%)"}
+      :children {
+       "T" {
+        :id "T", :type :template, :layout nil
+        :props {"name" "task", "data" "@:item"}
         :attrs {}
         :presets #{}
         :style {}
@@ -215,8 +248,19 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer nil
-   :mocks {}
+   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width 400, :height "400"
+   :mocks {
+    "Z5Nm740ym" {
+     :id "Z5Nm740ym", :name "base"
+     :data {
+      :input "demo"
+      :records [
+       {:id "1", :done? false, :text "done"}
+       {:id "2", :done? false, :text "text demo 2"}
+      ]
+     }
+    }
+   }
    :markup {
     :id "system", :type :box, :layout nil
     :props {}
@@ -225,58 +269,99 @@
     :style {"border" "1px solid #ddd", "padding" "8px", "margin" "8px", "background-color" "white"}
     :children {
      "T" {
-      :id "T", :type :box, :layout :row-parted
+      :id "T", :type :template, :layout nil
+      :props {"name" "header", "data" "@:input"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "b" {
+      :id "b", :type :divider, :layout nil
       :props {}
       :attrs {}
       :presets #{}
       :style {}
-      :children {
-       "T" {
-        :id "T", :type :text, :layout nil
-        :props {"value" "some header"}
-        :attrs {}
-        :presets #{:font-fancy}
-        :style {}
-        :children {}
-       }
-       "j" {
-        :id "j", :type :icon, :layout nil
-        :props {"name" "settings"}
-        :attrs {}
-        :presets #{}
-        :style {}
-        :children {}
-       }
-      }
+      :children {}
      }
-    }
-   }
-  }
-  "vRpCCeaS1" {
-   :id "vRpCCeaS1", :name "footer", :mock-pointer nil, :width 400, :height 100
-   :mocks {}
-   :markup {
-    :id "system", :type :box, :layout :row
-    :props {}
-    :attrs {}
-    :presets #{}
-    :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
-    :children {
-     "T" {
-      :id "T", :type :button, :layout nil
-      :props {"text" "Clear"}
+     "f" {
+      :id "f", :type :space, :layout nil
+      :props {"height" "4"}
       :attrs {}
       :presets #{}
       :style {}
       :children {}
      }
      "j" {
-      :id "j", :type :space, :layout nil
-      :props {"width" "8"}
+      :id "j", :type :template, :layout nil
+      :props {"name" "records", "data" "@:records"}
       :attrs {}
       :presets #{}
       :style {}
       :children {}
+     }
+     "r" {
+      :id "r", :type :template, :layout nil
+      :props {"name" "footer", "data" "@:records"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+    }
+   }
+  }
+  "vRpCCeaS1" {
+   :id "vRpCCeaS1", :name "footer", :mock-pointer "IShnGS5HE", :width 400, :height 100
+   :mocks {
+    "0jRLV6M6O" {
+     :id "0jRLV6M6O", :name "empty"
+     :data []
+    }
+    "IShnGS5HE" {
+     :id "IShnGS5HE", :name "base"
+     :data [2 3 4]
+    }
+   }
+   :markup {
+    :id "KJPSwckDy", :type :some, :layout nil
+    :props {"value" "@", "kind" "list"}
+    :attrs {}
+    :presets #{}
+    :style {}
+    :children {
+     "D" {
+      :id "D", :type :box, :layout nil
+      :props {}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "T" {
+      :id "system", :type :box, :layout :row
+      :props {}
+      :attrs {}
+      :presets #{}
+      :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
+      :children {
+       "T" {
+        :id "T", :type :button, :layout nil
+        :props {"text" "Clear", "action" "~:clear"}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+       "j" {
+        :id "j", :type :space, :layout nil
+        :props {"width" "8"}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+      }
      }
     }
    }
