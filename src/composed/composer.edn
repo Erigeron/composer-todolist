@@ -36,7 +36,7 @@
       :children {
        "T" {
         :id "T", :type :box, :layout nil
-        :props {"action" "~:toggle"}
+        :props {"action" "~:toggle", "data" "@:id"}
         :attrs {}
         :presets #{}
         :style {"height" "40", "width" "40", "background-color" "hsl(0,70%,60%)", "cursor" "pointer"}
@@ -44,7 +44,7 @@
        }
        "j" {
         :id "T", :type :box, :layout nil
-        :props {"action" "~:toggle"}
+        :props {"action" "~:toggle", "data" "@:id"}
         :attrs {}
         :presets #{}
         :style {"height" "40", "width" "40", "background-color" "#ada", "cursor" "pointer"}
@@ -120,7 +120,7 @@
       :children {
        "T" {
         :id "T", :type :icon, :layout nil
-        :props {"name" "delete", "action" "~:remove"}
+        :props {"name" "delete", "action" "~:remove", "data" "@:id"}
         :attrs {}
         :presets #{}
         :style {}
@@ -162,7 +162,7 @@
      }
      "j" {
       :id "j", :type :input, :layout nil
-      :props {"value" "@"}
+      :props {"value" "@", "action" "~:input"}
       :attrs {"placeholder" "Todo thing"}
       :presets #{}
       :style {}

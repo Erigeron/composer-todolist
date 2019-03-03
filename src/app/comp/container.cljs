@@ -11,7 +11,11 @@
             [app.config :refer [dev?]]
             [respo-composer.core :refer [render-markup extract-templates]]
             [shadow.resource :refer [inline]]
-            [cljs.reader :refer [read-string]]))
+            [cljs.reader :refer [read-string]]
+            [app.updater :refer [model-updater]]
+            ["shortid" :as shortid]
+            [cumulo-util.core :refer [unix-time!]]
+            [respo.comp.inspect :refer [comp-inspect]]))
 
 (defcomp
  comp-container
@@ -37,6 +41,12 @@
        :on-click (fn [e d! m!] (println (:content store)))})
      (render-markup
       (get templates "container")
-      {:data {:title "HEADER OF PAGE"}, :templates templates, :level 1}
-      (fn [op op-data] (println op op-data))))
+      {:data (:model store), :templates templates, :level 1}
+      (fn [d! op props op-data]
+        (println op props op-data)
+        (let [op-id (.generate shortid)
+              op-time (unix-time!)
+              next-store (model-updater (:model store) op props op-data op-id op-time)]
+          (d! :model next-store)))))
+    (comp-inspect "model" (:model store) {:bottom 0})
     (when dev? (cursor-> :reel comp-reel states reel {})))))
