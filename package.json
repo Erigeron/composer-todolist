@@ -11,6 +11,7 @@
     "upload": "node target/upload.js",
     "up": "yarn build-cdn && yarn upload",
     "page": "shadow-cljs clj-run build.main/page",
+    "composer": "cd src/composed/ && composer-app",
     "ln": "cd target && rm -f entry && ln -s ../entry"
   },
   "repository": {

@@ -248,15 +248,15 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer "qB_s-ESos", :width 400, :height "400"
+   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width 400, :height "400"
    :mocks {
-    "qB_s-ESos" {
-     :id "qB_s-ESos", :name "base"
+    "Z5Nm740ym" {
+     :id "Z5Nm740ym", :name "base"
      :data {
       :input "demo"
       :records [
-       {:id "0", :done? false, :text "something"}
-       {:id "1", :done? true, :text "something 22222"}
+       {:id "1", :done? false, :text "done"}
+       {:id "2", :done? false, :text "text demo 2"}
       ]
      }
     }
@@ -276,6 +276,22 @@
       :style {}
       :children {}
      }
+     "b" {
+      :id "b", :type :divider, :layout nil
+      :props {}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "f" {
+      :id "f", :type :space, :layout nil
+      :props {"height" "4"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
      "j" {
       :id "j", :type :template, :layout nil
       :props {"name" "records", "data" "@:records"}
@@ -286,7 +302,7 @@
      }
      "r" {
       :id "r", :type :template, :layout nil
-      :props {"name" "footer"}
+      :props {"name" "footer", "data" "@:records"}
       :attrs {}
       :presets #{}
       :style {}
@@ -296,30 +312,56 @@
    }
   }
   "vRpCCeaS1" {
-   :id "vRpCCeaS1", :name "footer", :mock-pointer nil, :width 400, :height 100
-   :mocks {}
+   :id "vRpCCeaS1", :name "footer", :mock-pointer "IShnGS5HE", :width 400, :height 100
+   :mocks {
+    "0jRLV6M6O" {
+     :id "0jRLV6M6O", :name "empty"
+     :data []
+    }
+    "IShnGS5HE" {
+     :id "IShnGS5HE", :name "base"
+     :data [2 3 4]
+    }
+   }
    :markup {
-    :id "system", :type :box, :layout :row
-    :props {}
+    :id "KJPSwckDy", :type :some, :layout nil
+    :props {"value" "@", "kind" "list"}
     :attrs {}
     :presets #{}
-    :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
+    :style {}
     :children {
-     "T" {
-      :id "T", :type :button, :layout nil
-      :props {"text" "Clear", "action" "~:clear"}
+     "D" {
+      :id "D", :type :box, :layout nil
+      :props {}
       :attrs {}
       :presets #{}
       :style {}
       :children {}
      }
-     "j" {
-      :id "j", :type :space, :layout nil
-      :props {"width" "8"}
+     "T" {
+      :id "system", :type :box, :layout :row
+      :props {}
       :attrs {}
       :presets #{}
-      :style {}
-      :children {}
+      :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
+      :children {
+       "T" {
+        :id "T", :type :button, :layout nil
+        :props {"text" "Clear", "action" "~:clear"}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+       "j" {
+        :id "j", :type :space, :layout nil
+        :props {"width" "8"}
+        :attrs {}
+        :presets #{}
+        :style {}
+        :children {}
+       }
+      }
      }
     }
    }
