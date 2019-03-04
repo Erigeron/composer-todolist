@@ -8,7 +8,7 @@ Composer Todolist
 
 ```bash
 yarn
-yarn global add @respo/composer
+yarn global add @respo/composer-app
 yarn composer # launch an editor and open the link
 
 # another terminal
