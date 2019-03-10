@@ -21,11 +21,7 @@
     }
    }
    :markup {
-    :id "system", :type :box, :layout :row
-    :props {}
-    :attrs {}
-    :presets #{}
-    :style {"background-color" "hsl(0,0%,100%)", "border-bottom" "1px solid #eee"}
+    :layout :row, :type :box, :id "system"
     :children {
      "T" {
       :id "eoUAbhfcG", :type :some, :layout nil
@@ -35,20 +31,22 @@
       :style {}
       :children {
        "T" {
-        :id "T", :type :box, :layout nil
-        :props {"action" "~:toggle", "data" "@:id"}
-        :attrs {}
-        :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "hsl(200,70%,60%)", "cursor" "pointer"}
+        :layout nil, :type :box, :id "T"
         :children {}
+        :style {"height" "40", "width" "40", "background-color" "hsl(200,70%,60%)", "cursor" "pointer"}
+        :presets #{}
+        :event {"click" ":toggle"}
+        :attrs {}
+        :props {"param" "@:id"}
        }
        "j" {
-        :id "T", :type :box, :layout nil
-        :props {"action" "~:toggle", "data" "@:id"}
-        :attrs {}
-        :presets #{}
-        :style {"height" "40", "width" "40", "background-color" "hsl(0,0%,90%)", "cursor" "pointer"}
+        :layout nil, :type :box, :id "T"
         :children {}
+        :style {"height" "40", "width" "40", "background-color" "hsl(0,0%,90%)", "cursor" "pointer"}
+        :presets #{}
+        :event {"click" ":toggle"}
+        :attrs {}
+        :props {"param" "@:id"}
        }
       }
      }
@@ -119,16 +117,22 @@
       :style {"padding" "8"}
       :children {
        "T" {
-        :id "T", :type :icon, :layout nil
-        :props {"name" "delete", "action" "~:remove", "data" "@:id", "color" "hsl(0,90%,75%)"}
-        :attrs {}
-        :presets #{}
-        :style {}
+        :layout nil, :type :icon, :id "T"
         :children {}
+        :style {}
+        :presets #{}
+        :event {"click" ":remove"}
+        :attrs {}
+        :props {"name" "delete", "color" "hsl(0,90%,75%)", "param" "@:id"}
        }
       }
      }
     }
+    :style {"background-color" "hsl(0,0%,100%)", "border-bottom" "1px solid #eee"}
+    :presets #{}
+    :event {}
+    :attrs {}
+    :props {}
    }
   }
   "Gayfn7QMm" {
@@ -161,12 +165,13 @@
       :children {}
      }
      "j" {
-      :id "j", :type :input, :layout nil
-      :props {"value" "@", "action" "~:input"}
-      :attrs {"placeholder" "Todo thing"}
-      :presets #{}
-      :style {}
+      :layout nil, :type :input, :id "j"
       :children {}
+      :style {}
+      :presets #{}
+      :event {"input" ":input", "keydown" ":keydown"}
+      :attrs {"placeholder" "Todo thing"}
+      :props {"value" "@"}
      }
      "n" {
       :id "n", :type :space, :layout nil
@@ -177,12 +182,13 @@
       :children {}
      }
      "r" {
-      :id "r", :type :button, :layout nil
-      :props {"action" "~:submit", "text" "Add task"}
-      :attrs {}
-      :presets #{}
-      :style {}
+      :layout nil, :type :button, :id "r"
       :children {}
+      :style {}
+      :presets #{}
+      :event {"click" ":submit"}
+      :attrs {}
+      :props {"text" "Add task"}
      }
     }
    }
@@ -346,12 +352,13 @@
       :style {"background-color" "hsl(0,0%,100%)", "padding" "8px"}
       :children {
        "T" {
-        :id "T", :type :button, :layout nil
-        :props {"text" "Clear", "action" "~:clear"}
-        :attrs {}
-        :presets #{}
-        :style {}
+        :layout nil, :type :button, :id "T"
         :children {}
+        :style {}
+        :presets #{}
+        :event {"click" ":clear"}
+        :attrs {}
+        :props {"text" "Clear"}
        }
        "j" {
         :id "j", :type :space, :layout nil
@@ -362,12 +369,13 @@
         :children {}
        }
        "r" {
-        :id "r", :type :button, :layout nil
-        :props {"text" "Archive", "action" "~:archive"}
-        :attrs {}
-        :presets #{}
-        :style {}
+        :layout nil, :type :button, :id "r"
         :children {}
+        :style {}
+        :presets #{}
+        :event {"click" ":archive"}
+        :attrs {}
+        :props {"text" "Archive"}
        }
       }
      }
