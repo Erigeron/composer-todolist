@@ -25,7 +25,7 @@
     :children {
      "T" {
       :id "eoUAbhfcG", :type :some, :layout nil
-      :props {"value" "@:done?", "kind" "boolean"}
+      :props {"value" "@:done?", "kind" ":boolean"}
       :attrs {}
       :presets #{}
       :style {}
@@ -60,7 +60,7 @@
      }
      "j" {
       :id "2iFo8DU7J", :type :some, :layout nil
-      :props {"value" "@:text", "kind" "string"}
+      :props {"value" "@:text", "kind" ":string"}
       :attrs {}
       :presets #{}
       :style {}
@@ -74,7 +74,7 @@
         :children {
          "T" {
           :id "T", :type :text, :layout nil
-          :props {"value" "Empty"}
+          :props {"value" "\"Empty"}
           :attrs {}
           :presets #{}
           :style {"color" "#aaa"}
@@ -150,7 +150,7 @@
     :children {
      "T" {
       :id "T", :type :text, :layout nil
-      :props {"value" "My Todolist"}
+      :props {"value" "\"My Todolist"}
       :attrs {}
       :presets #{:font-fancy}
       :style {}
@@ -188,13 +188,13 @@
       :presets #{}
       :event {"click" ":submit"}
       :attrs {}
-      :props {"text" "Add task"}
+      :props {"text" "\"Add task"}
      }
     }
    }
   }
   "dXlFkinWy" {
-   :id "dXlFkinWy", :name "records", :mock-pointer "INLWqkKLk", :width 400, :height 100
+   :id "dXlFkinWy", :name "records", :mock-pointer "6rprNVgQt", :width 400, :height 100
    :mocks {
     "6rprNVgQt" {
      :id "6rprNVgQt", :name "empty"
@@ -211,7 +211,7 @@
    }
    :markup {
     :id "iEYNBfUfB", :type :some, :layout nil
-    :props {"kind" "list", "value" "@"}
+    :props {"kind" ":list", "value" "@"}
     :attrs {}
     :presets #{}
     :style {}
@@ -225,7 +225,7 @@
       :children {
        "T" {
         :id "T", :type :text, :layout nil
-        :props {"value" "Empty"}
+        :props {"value" "\"Empty"}
         :attrs {}
         :presets #{:font-fancy}
         :style {"color" "#ddd", "padding" "4px"}
@@ -254,7 +254,7 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width 400, :height "400"
+   :id "sx519VqVn", :name "container", :mock-pointer nil, :width 400, :height "400"
    :mocks {
     "Z5Nm740ym" {
      :id "Z5Nm740ym", :name "base"
@@ -358,7 +358,7 @@
         :presets #{}
         :event {"click" ":clear"}
         :attrs {}
-        :props {"text" "Clear"}
+        :props {"text" "\"Clear"}
        }
        "j" {
         :id "j", :type :space, :layout nil
@@ -375,7 +375,7 @@
         :presets #{}
         :event {"click" ":archive"}
         :attrs {}
-        :props {"text" "Archive"}
+        :props {"text" "\"Archive"}
        }
       }
      }
