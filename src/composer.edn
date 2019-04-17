@@ -5,7 +5,7 @@
  }
  :templates {
   "6lOwBKeFr" {
-   :id "6lOwBKeFr", :name "task", :mock-pointer "rvPe9QUYN", :width 400, :height 100
+   :id "6lOwBKeFr", :name "task", :mock-pointer "rvPe9QUYN", :width 400, :height 100, :sort-key "a"
    :mocks {
     "GxVXbLuSK" {
      :id "GxVXbLuSK", :name "empty task"
@@ -136,7 +136,7 @@
    }
   }
   "Gayfn7QMm" {
-   :id "Gayfn7QMm", :name "header", :mock-pointer "zn6RdI-_2", :width 400, :height 100
+   :id "Gayfn7QMm", :name "header", :mock-pointer "zn6RdI-_2", :width 400, :height 100, :sort-key "d"
    :mocks {
     "rhrFz-MZW" {:id "rhrFz-MZW", :data "something", :name "something"}
     "zn6RdI-_2" {:id "zn6RdI-_2", :data "", :name "base"}
@@ -194,7 +194,7 @@
    }
   }
   "dXlFkinWy" {
-   :id "dXlFkinWy", :name "records", :mock-pointer "6rprNVgQt", :width 400, :height 100
+   :id "dXlFkinWy", :name "records", :mock-pointer "6rprNVgQt", :width 400, :height 100, :sort-key "c"
    :mocks {
     "6rprNVgQt" {
      :id "6rprNVgQt", :name "empty"
@@ -254,7 +254,7 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer nil, :width 400, :height "400"
+   :id "sx519VqVn", :name "container", :mock-pointer nil, :width 400, :height "400", :sort-key "o"
    :mocks {
     "Z5Nm740ym" {
      :id "Z5Nm740ym", :name "base"
@@ -318,7 +318,7 @@
    }
   }
   "vRpCCeaS1" {
-   :id "vRpCCeaS1", :name "footer", :mock-pointer "IShnGS5HE", :width 400, :height 100
+   :id "vRpCCeaS1", :name "footer", :mock-pointer "IShnGS5HE", :width 400, :height 100, :sort-key "e"
    :mocks {
     "0jRLV6M6O" {
      :id "0jRLV6M6O", :name "empty"
@@ -382,5 +382,8 @@
     }
    }
   }
+ }
+ :settings {
+  :colors {}
  }
 }
