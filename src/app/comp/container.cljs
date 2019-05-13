@@ -9,7 +9,7 @@
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
-            [respo-composer.core :refer [render-markup extract-templates]]
+            [composer.core :refer [render-markup extract-templates]]
             [shadow.resource :refer [inline]]
             [cljs.reader :refer [read-string]]
             ["shortid" :as shortid]
@@ -27,7 +27,13 @@
     {:style (merge ui/global ui/row)}
     (render-markup
      (get templates "container")
-     {:data store, :templates templates, :level 1}
+     {:data store,
+      :templates templates,
+      :level 1,
+      :template-name "container",
+      :state-path [],
+      :states states,
+      :state-fns {"header" (fn [data state] (or state {:draft ""}))}}
      (fn [d! op param options]
        (println op param (pr-str options))
        (case op

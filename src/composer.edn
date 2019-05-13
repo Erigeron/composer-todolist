@@ -139,7 +139,12 @@
    :id "Gayfn7QMm", :name "header", :mock-pointer "zn6RdI-_2", :width 400, :height 100, :sort-key "d"
    :mocks {
     "rhrFz-MZW" {:id "rhrFz-MZW", :data "something", :name "something"}
-    "zn6RdI-_2" {:id "zn6RdI-_2", :data "", :name "base"}
+    "zn6RdI-_2" {
+     :id "zn6RdI-_2", :data "", :name "base", :template-id "Gayfn7QMm", :mock-id "zn6RdI-_2"
+     :state {
+      :data {:draft "DRAFt"}
+     }
+    }
    }
    :markup {
     :id "system", :type :box, :layout :row-middle
@@ -152,8 +157,8 @@
       :id "T", :type :text, :layout nil
       :props {"value" "\"My Todolist"}
       :attrs {}
-      :presets #{:font-fancy}
-      :style {}
+      :presets #{}
+      :style {"font-family" "Josefin Sans, Helvetica neue, Arial, sans-serif"}
       :children {}
      }
      "b" {
@@ -171,7 +176,7 @@
       :presets #{}
       :event {"input" ":input", "keydown" ":keydown"}
       :attrs {"placeholder" "Todo thing"}
-      :props {"value" "@"}
+      :props {"value" "#:draft"}
      }
      "n" {
       :id "n", :type :space, :layout nil
@@ -227,8 +232,8 @@
         :id "T", :type :text, :layout nil
         :props {"value" "\"Empty"}
         :attrs {}
-        :presets #{:font-fancy}
-        :style {"color" "#ddd", "padding" "4px"}
+        :presets #{}
+        :style {"color" "#ddd", "padding" "4px", "font-family" "Josefin Sans, Helvetica neue, Arial, sans-serif"}
         :children {}
        }
       }
@@ -254,16 +259,22 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer nil, :width 400, :height "400", :sort-key "o"
+   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width 400, :height "400", :sort-key "o"
    :mocks {
     "Z5Nm740ym" {
-     :id "Z5Nm740ym", :name "base"
+     :id "Z5Nm740ym", :name "base", :template-id "sx519VqVn", :mock-id "Z5Nm740ym"
      :data {
       :input "demo"
       :records [
        {:id "1", :done? false, :text "done"}
        {:id "2", :done? false, :text "text demo 2"}
       ]
+     }
+     :state {
+      :data {}
+      :header {
+       :data {:draft "A 1"}
+      }
      }
     }
    }
@@ -276,7 +287,7 @@
     :children {
      "T" {
       :id "T", :type :template, :layout nil
-      :props {"name" "header", "data" "@:input"}
+      :props {"name" "header", "data" "@:input", "state-key" ":header"}
       :attrs {}
       :presets #{}
       :style {}
