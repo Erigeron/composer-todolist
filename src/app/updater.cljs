@@ -5,14 +5,12 @@
   (case op
     :states (update store :states (mutate op-data))
     :hydrate-storage op-data
-    :input (assoc store :input op-data)
     :submit
       (-> store
           (update
            :records
            (fn [records]
-             (conj records {:id op-id, :time op-time, :done? false, :text (:input store)})))
-          (assoc :input ""))
+             (conj records {:id op-id, :time op-time, :done? false, :text op-data}))))
     :toggle
       (update
        store

@@ -174,9 +174,17 @@
       :children {}
       :style {}
       :presets #{}
-      :event {"input" ":input", "keydown" ":keydown"}
+      :event {"input" ":-input", "keydown" ":-keydown"}
       :attrs {"placeholder" "Todo thing"}
       :props {"value" "#:draft"}
+     }
+     "l" {
+      :type :text, :layout nil
+      :props {"value" "#:draft"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
      }
      "n" {
       :id "n", :type :space, :layout nil
@@ -191,7 +199,7 @@
       :children {}
       :style {}
       :presets #{}
-      :event {"click" ":submit"}
+      :event {"click" ":-submit"}
       :attrs {}
       :props {"text" "\"Add task"}
      }

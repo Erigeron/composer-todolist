@@ -36,18 +36,32 @@
       :state-fns {"header" (fn [data state] (or state {:draft ""}))}}
      (fn [d! op param options]
        (println op param (pr-str options))
-       (case op
-         :input (d! :input (:value options))
-         :submit (when-not (string/blank? (:input store)) (d! :submit nil))
-         :clear (d! :clear nil)
-         :archive (d! :archive nil)
-         :toggle (d! :toggle param)
-         :remove (d! :remove param)
-         :keydown
-           (cond
-             (= 13 (.-keyCode (:event options)))
-               (when-not (string/blank? (:input store)) (d! :submit nil))
-             :else (js/console.log "keydown" (:event options)))
-         (do (println "Unknown op:" op)))))
-    (comp-inspect "model" (:model store) {:bottom 0})
+       (let [template-name (:template-name options)
+             state-path (:state-path options)
+             mutate! (fn [x] (d! :states [state-path x]))
+             this-state (get-in states (conj state-path :data))]
+         (if (string/starts-with? (name op) "-")
+           (case template-name
+             "header"
+               (case op
+                 :-input (mutate! (assoc this-state :draft (:value options)))
+                 :-keydown (println "keydown")
+                 :-submit
+                   (let [draft (:draft this-state)]
+                     (when-not (string/blank? draft) (d! :submit draft) (mutate! nil)))
+                 (println "template op not handled:" op template-name))
+             (do (println "Not handled in template:" template-name)))
+           (case op
+             :input (d! :input (:value options))
+             :clear (d! :clear nil)
+             :archive (d! :archive nil)
+             :toggle (d! :toggle param)
+             :remove (d! :remove param)
+             :keydown
+               (cond
+                 (= 13 (.-keyCode (:event options)))
+                   (when-not (string/blank? (:input store)) (d! :submit nil))
+                 :else (js/console.log "keydown" (:event options)))
+             (do (println "Unknown op:" op)))))))
+    (comp-inspect "model" store {:bottom 0})
     (when dev? (cursor-> :reel comp-reel states reel {})))))
