@@ -174,7 +174,7 @@
       :children {}
       :style {}
       :presets #{}
-      :event {"input" ":-input", "keydown" ":-keydown"}
+      :event {"input" ":input", "keydown" ":keydown"}
       :attrs {"placeholder" "Todo thing"}
       :props {"value" "#:draft"}
      }
@@ -199,7 +199,7 @@
       :children {}
       :style {}
       :presets #{}
-      :event {"click" ":-submit"}
+      :event {"click" ":submit"}
       :attrs {}
       :props {"text" "\"Add task"}
      }
@@ -207,7 +207,7 @@
    }
   }
   "dXlFkinWy" {
-   :id "dXlFkinWy", :name "records", :mock-pointer "6rprNVgQt", :width 400, :height 100, :sort-key "c"
+   :id "dXlFkinWy", :name "records", :mock-pointer "INLWqkKLk", :width 400, :height 100, :sort-key "c"
    :mocks {
     "6rprNVgQt" {
      :id "6rprNVgQt", :name "empty"
