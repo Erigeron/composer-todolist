@@ -5,15 +5,16 @@
  }
  :templates {
   "6lOwBKeFr" {
-   :id "6lOwBKeFr", :name "task", :mock-pointer "rvPe9QUYN", :width 400, :height 100, :sort-key "a"
+   :id "6lOwBKeFr", :name "task", :mock-pointer "rvPe9QUYN", :width "600", :height 100, :sort-key "a"
    :mocks {
     "GxVXbLuSK" {
      :id "GxVXbLuSK", :name "empty task"
      :data {:id "002", :text "", :done? false}
     }
     "rvPe9QUYN" {
-     :id "rvPe9QUYN", :name "base"
+     :id "rvPe9QUYN", :name "base", :template-id "6lOwBKeFr", :mock-id "rvPe9QUYN"
      :data {:id "001", :text "Demo of task", :done? false}
+     :state {:data "internal state"}
     }
     "sGbCZti4P" {
      :id "sGbCZti4P", :name "done task"
@@ -58,6 +59,15 @@
       :style {}
       :children {}
      }
+     "f" {
+      :type :input, :layout nil
+      :props {"value" "@:text"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+      :event {"input" ":edit"}
+     }
      "j" {
       :id "2iFo8DU7J", :type :some, :layout nil
       :props {"value" "@:text", "kind" ":string"}
@@ -69,7 +79,7 @@
         :id "D", :type :box, :layout :row-middle
         :props {}
         :attrs {}
-        :presets #{:flex}
+        :presets #{}
         :style {}
         :children {
          "T" {
@@ -86,7 +96,7 @@
         :id "j", :type :box, :layout :row-middle
         :props {}
         :attrs {}
-        :presets #{:flex}
+        :presets #{}
         :style {}
         :children {
          "T" {
@@ -103,6 +113,31 @@
      }
      "n" {
       :id "n", :type :space, :layout nil
+      :props {"width" "8"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "p" {
+      :type :input, :layout nil
+      :props {"value" "#"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+      :event {"input" ":local-edit"}
+     }
+     "pT" {
+      :type :text, :layout nil
+      :props {"value" "#"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "q" {
+      :type :space, :layout nil
       :props {"width" "8"}
       :attrs {}
       :presets #{}
@@ -206,6 +241,32 @@
     }
    }
   }
+  "b0VwA-0nd" {
+   :id "b0VwA-0nd", :name "data", :mock-pointer "base", :width 400, :height 400, :sort-key "j"
+   :mocks {
+    "base" {
+     :id "base", :state nil, :name "base", :template-id "b0VwA-0nd", :mock-id "base"
+     :data {:data "code"}
+    }
+   }
+   :markup {
+    :type :box, :layout nil
+    :props {}
+    :attrs {}
+    :presets #{}
+    :style {"word-break" "break-all", "width" "100%", "white-space" "normal", "overflow" "auto", "background-color" "hsl(0,0%,96%)", "padding" "8px", "max-width" "600px"}
+    :children {
+     "T" {
+      :type :text, :layout nil
+      :props {"value" "@"}
+      :attrs {}
+      :presets #{}
+      :style {"padding" "8", "font-family" "Source Code Pro, Menlo, monospace", "font-size" "12px", "color" "black", "line-height" "20px"}
+      :children {}
+     }
+    }
+   }
+  }
   "dXlFkinWy" {
    :id "dXlFkinWy", :name "records", :mock-pointer "INLWqkKLk", :width 400, :height 100, :sort-key "c"
    :mocks {
@@ -255,7 +316,7 @@
       :children {
        "T" {
         :id "T", :type :template, :layout nil
-        :props {"name" "task", "data" "@:item"}
+        :props {"name" "task", "data" "@:item", "state-key" "@:item :id"}
         :attrs {}
         :presets #{}
         :style {}
@@ -267,7 +328,7 @@
    }
   }
   "sx519VqVn" {
-   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width 400, :height "400", :sort-key "o"
+   :id "sx519VqVn", :name "container", :mock-pointer "Z5Nm740ym", :width "600", :height "400", :sort-key "o"
    :mocks {
     "Z5Nm740ym" {
      :id "Z5Nm740ym", :name "base", :template-id "sx519VqVn", :mock-id "Z5Nm740ym"
@@ -319,7 +380,7 @@
      }
      "j" {
       :id "j", :type :template, :layout nil
-      :props {"name" "records", "data" "@:records"}
+      :props {"name" "records", "data" "@:records", "state-key" ":records"}
       :attrs {}
       :presets #{}
       :style {}
@@ -328,6 +389,14 @@
      "r" {
       :id "r", :type :template, :layout nil
       :props {"name" "footer", "data" "@:records"}
+      :attrs {}
+      :presets #{}
+      :style {}
+      :children {}
+     }
+     "v" {
+      :type :template, :layout nil
+      :props {"name" "\"data", "data" "@"}
       :attrs {}
       :presets #{}
       :style {}
@@ -403,6 +472,12 @@
   }
  }
  :settings {
-  :colors {}
+  :colors {
+   "-X6m1079K" {:id "-X6m1079K", :name "white", :color "white", :group "theme"}
+   "31lJzBqzp" {:id "31lJzBqzp", :name "bg", :color "#eee", :group "theme"}
+   "KUY3DfoK7" {:id "KUY3DfoK7", :name "black", :color "black", :group "theme"}
+   "TkJUnOLJF" {:id "TkJUnOLJF", :name "red", :color "red", :group "theme"}
+   "o8Sr3V6oL" {:id "o8Sr3V6oL", :name "gray", :color "#ddd", :group "theme"}
+  }
  }
 }

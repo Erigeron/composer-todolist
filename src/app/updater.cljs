@@ -20,6 +20,18 @@
               (map
                (fn [record] (if (= op-data (:id record)) (update record :done? not) record)))
               vec)))
+    :edit
+      (update
+       store
+       :records
+       (fn [records]
+         (->> records
+              (map
+               (fn [record]
+                 (if (= (:id op-data) (:id record))
+                   (assoc record :text (:text op-data))
+                   record)))
+              vec)))
     :remove
       (update
        store

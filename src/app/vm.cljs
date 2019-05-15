@@ -27,6 +27,8 @@
      (case op
        :toggle (d! :toggle param)
        :remove (d! :remove param)
+       :edit (d! :edit {:id (get-in options [:data :id]), :text (:value options)})
+       :local-edit (mutate! (:value options))
        (do (println "Unknown op:" op))))})
 
 (def states-manager {"header" state-header, "footer" state-footer, "task" state-task})
