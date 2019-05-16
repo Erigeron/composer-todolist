@@ -1,5 +1,5 @@
 
-(ns app.comp.container
+(ns app.container
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
             [respo.core
@@ -23,12 +23,13 @@
  (reel)
  (let [store (:store reel)
        states (:states store)
-       templates (extract-templates (read-string (inline "composer.edn")))]
+       templates (extract-templates (read-string (inline "composer.edn")))
+       view-model (vm/get-view-model store)]
    (div
     {:style (merge ui/global ui/row)}
     (render-markup
      (get templates "container")
-     {:data store,
+     {:data view-model,
       :templates templates,
       :level 1,
       :template-name "container",
@@ -38,15 +39,6 @@
                       (map (fn [[alias manager]] [alias (:init manager)]))
                       (into {}))}
      (fn [d! op context options]
-       (println op (dissoc context :templates :state-fns) (pr-str options))
-       (let [param (:param options)
-             template-name (:template-name context)
-             state-path (:state-path context)
-             mutate! (fn [x] (d! :states [state-path x]))
-             this-state (get-in states (conj state-path :data))]
-         (if (contains? vm/states-manager template-name)
-           (let [on-action (get-in vm/states-manager [template-name :update])]
-             (on-action d! op context options this-state mutate!))
-           (println "Unhandled template:" template-name)))))
+       (vm/on-action d! op (dissoc context :templates :state-fns) options view-model states)))
     (comp-inspect "model" store {:bottom 0})
     (when dev? (cursor-> :reel comp-reel states reel {})))))

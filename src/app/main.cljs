@@ -1,7 +1,7 @@
 
 (ns app.main
   (:require [respo.core :refer [render! clear-cache! realize-ssr!]]
-            [app.comp.container :refer [comp-container]]
+            [app.container :refer [comp-container]]
             [app.updater :refer [updater]]
             [app.schema :as schema]
             [reel.util :refer [listen-devtools!]]
