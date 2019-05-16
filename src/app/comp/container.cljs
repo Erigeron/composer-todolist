@@ -37,15 +37,16 @@
       :state-fns (->> vm/states-manager
                       (map (fn [[alias manager]] [alias (:init manager)]))
                       (into {}))}
-     (fn [d! op param options]
-       (println op param (pr-str options))
-       (let [template-name (:template-name options)
-             state-path (:state-path options)
+     (fn [d! op context options]
+       (println op (dissoc context :templates :state-fns) (pr-str options))
+       (let [param (:param options)
+             template-name (:template-name context)
+             state-path (:state-path context)
              mutate! (fn [x] (d! :states [state-path x]))
              this-state (get-in states (conj state-path :data))]
          (if (contains? vm/states-manager template-name)
            (let [on-action (get-in vm/states-manager [template-name :update])]
-             (on-action d! op param options this-state mutate!))
+             (on-action d! op context options this-state mutate!))
            (println "Unhandled template:" template-name)))))
     (comp-inspect "model" store {:bottom 0})
     (when dev? (cursor-> :reel comp-reel states reel {})))))
