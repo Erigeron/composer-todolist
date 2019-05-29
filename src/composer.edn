@@ -472,12 +472,17 @@
   }
  }
  :settings {
-  :colors {
-   "-X6m1079K" {:id "-X6m1079K", :name "white", :color "white", :group "theme"}
-   "31lJzBqzp" {:id "31lJzBqzp", :name "bg", :color "#eee", :group "theme"}
-   "KUY3DfoK7" {:id "KUY3DfoK7", :name "black", :color "black", :group "theme"}
-   "TkJUnOLJF" {:id "TkJUnOLJF", :name "red", :color "red", :group "theme"}
-   "o8Sr3V6oL" {:id "o8Sr3V6oL", :name "gray", :color "#ddd", :group "theme"}
+  :color-groups {
+   "base" {
+    :id "base", :name "theme"
+    :colors {
+     "-X6m1079K" {:id "-X6m1079K", :name "white", :color "white", :group "theme"}
+     "31lJzBqzp" {:id "31lJzBqzp", :name "bg", :color "#eee", :group "theme"}
+     "KUY3DfoK7" {:id "KUY3DfoK7", :name "black", :color "black", :group "theme"}
+     "TkJUnOLJF" {:id "TkJUnOLJF", :name "red", :color "red", :group "theme"}
+     "o8Sr3V6oL" {:id "o8Sr3V6oL", :name "gray", :color "#ddd", :group "theme"}
+    }
+   }
   }
  }
 }
