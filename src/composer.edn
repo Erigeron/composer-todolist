@@ -87,7 +87,7 @@
           :props {"value" "\"Empty"}
           :attrs {}
           :presets #{}
-          :style {"color" "#aaa"}
+          :style {"color" "\"#aaa"}
           :children {}
          }
         }
@@ -302,7 +302,7 @@
         :props {"value" "\"Empty"}
         :attrs {}
         :presets #{}
-        :style {"color" "#ddd", "padding" "4px", "font-family" "Josefin Sans, Helvetica neue, Arial, sans-serif"}
+        :style {"color" "\"#ddd", "padding" "4px", "font-family" "Josefin Sans, Helvetica neue, Arial, sans-serif"}
         :children {}
        }
       }
