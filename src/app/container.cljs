@@ -2,9 +2,7 @@
 (ns app.container
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
-            [respo.core
-             :refer
-             [defcomp cursor-> action-> mutation-> <> div button textarea span]]
+            [respo.core :refer [defcomp >> <> div button textarea span]]
             [respo.comp.space :refer [=<]]
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
@@ -41,4 +39,4 @@
      (fn [d! op context options]
        (vm/on-action d! op (dissoc context :templates :state-fns) options view-model states)))
     (comp-inspect "model" store {:bottom 0})
-    (when dev? (cursor-> :reel comp-reel states reel {})))))
+    (when dev? (comp-reel (>> states :reel) reel {})))))
